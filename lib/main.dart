@@ -5,6 +5,13 @@ import 'screens/splash_screen.dart';
 import 'providers/auth_provider.dart';
 import 'providers/book_provider.dart';
 
+//an attempt to solve the firebase initialization issue using the firebase cli
+import "firebase_options.dart";
+
+
+
+
+
 // void main() async {
 //    WidgetsFlutterBinding.ensureInitialized();
 //
@@ -38,12 +45,15 @@ import 'providers/book_provider.dart';
 // }
 
 void main() {
+
+  //an attempt to solve the firebase initialization issue
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(App());
 }
 
 class App extends StatelessWidget {
   // Create the initialization Future outside of `build`:
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
 
   @override
@@ -101,3 +111,4 @@ class Loading extends StatelessWidget {
     );
   }
 }
+
