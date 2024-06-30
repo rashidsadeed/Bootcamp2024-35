@@ -2,11 +2,14 @@ class Book {
   final String id;
   final String title;
   final String author;
-  final String year;
-  final String price;
+  final int year;
+  final double price;
   final String genre;
   final String description;
   final String imageUrl;
+  final String listedBy;
+  final int yearsUsed;
+  final String location;
 
   Book({
     required this.id,
@@ -17,6 +20,9 @@ class Book {
     required this.genre,
     required this.description,
     required this.imageUrl,
+    required this.listedBy,
+    required this.yearsUsed,
+    required this.location,
   });
 
   factory Book.fromMap(Map<String, dynamic> data, String id) {
@@ -29,6 +35,9 @@ class Book {
      genre: data['genre'],
      description: data['description'],
      imageUrl: data['imageUrl'],
+     listedBy: data['listedBy'],
+     yearsUsed: data['yearsUsed'],
+     location: data['location'],
       );
    }
 
@@ -42,6 +51,9 @@ class Book {
      'genre': genre,
      'description': description,
      'imageUrl': imageUrl,
+     'listedBy': listedBy,
+     'yearsUsed': yearsUsed,
+     'location': location,
    };
  }
  }

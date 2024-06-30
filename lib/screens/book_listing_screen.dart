@@ -10,6 +10,12 @@ class BookListingsScreen extends StatelessWidget {
   final TextEditingController priceController = TextEditingController();
   final TextEditingController genreController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController imageUrlController = TextEditingController();
+  final TextEditingController yearsUsedController = TextEditingController();
+  final TextEditingController locationController = TextEditingController();
+  //no longer needed since the UID is used instead
+  //final TextEditingController listedByController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,17 +63,37 @@ class BookListingsScreen extends StatelessWidget {
                 ),
                 controller: descriptionController
             ),
-
+            TextField(
+                decoration: const InputDecoration(
+                  hintText: "Image URL",
+                ),
+                controller: imageUrlController
+            ),
+            TextField(
+                decoration: const InputDecoration(
+                  hintText: "yearsUsed",
+                ),
+                controller: yearsUsedController
+            ),
+            TextField(
+                decoration: const InputDecoration(
+                  hintText: "Location",
+                ),
+                controller: locationController
+            ),
             SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () {
                   Provider.of<BookProvider>(context, listen: false).addBook(
                     titleController.text,
                     authorController.text,
-                    yearController.text,
-                    priceController.text,
+                    int.parse(yearController.text),
+                    double.parse(priceController.text),
                     genreController.text,
                     descriptionController.text,
+                    imageUrlController.text,
+                    int.parse(yearsUsedController.text),
+                    locationController.text,
                   );
                   Navigator.pop(context);
                 },
