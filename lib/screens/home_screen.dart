@@ -52,6 +52,10 @@ class HomeScreen extends StatelessWidget {
               // ),
               // ),
               //to create a slide show of different books
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("Recent Books", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+              ),
               BooksSlider(),
 
               
