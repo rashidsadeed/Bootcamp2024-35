@@ -37,45 +37,27 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               //to create a slide show of different genres
-              Container(
-                  height: 100,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: genres.map((genre) =>
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              //MaterialPageRoute(builder: (context) => GenreScreen(genre: genre)),
+              GenresCards(),
+              SizedBox(height: 10,),
 
-                              //temporarily using the same screen for all genres to avoid errors
-                              MaterialPageRoute(builder: (context) => WishlistScreen()),
+              //this part was used to check the refresh function of the bookprovider
+              // Container(
+              //   padding: EdgeInsets.all(8),
+              //   child: ElevatedButton(
+              //     onPressed: () {
+              //       bookProvider.refreshBooks();
+              //       print("number of books: ${bookProvider.listedBooks.length}");
+              //     },
+              //     child: Text("List a book"),
+              // ),
+              // ),
+              //to create a slide show of different books
+              BooksSlider(),
 
-                            );
-                          },
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Center(
-                                child: Text(
-                                  genre,
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ),
-                            ),
-                          ),
-                        )).toList(),
-                  ),
-                  ),
+              
+              
 
-              Container(
-                height: 200,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: bookProvider.listedBooks.map((book) =>
-                      BookCard(book: book)).toList(),
-                ),
-              )
+              
             ],
           );
         },
@@ -116,3 +98,82 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+class GenresCards extends StatelessWidget {
+  const GenresCards({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 150,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: genres.map((genre) =>
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    //MaterialPageRoute(builder: (context) => GenreScreen(genre: genre)),
+    
+                    //temporarily using the same screen for all genres to avoid errors
+                    MaterialPageRoute(builder: (context) => WishlistScreen()),
+    
+                  );
+                },
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Text(
+                        genre,
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ),
+              )).toList(),
+        ),
+        );
+  }
+}
+
+class BooksSlider extends StatelessWidget {
+  const BooksSlider({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<BookProvider>(
+      builder: (context, bookProvider, child) {
+        return Container(
+          height: 200,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: bookProvider.listedBooks.map((book) => Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      book.title,
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'Author: ${book.author}',
+                      style: TextStyle(fontSize: 11),
+                    ),
+                    Text(
+                      'Price: \$${book.price.toStringAsFixed(2)}',
+                      style: TextStyle(fontSize: 11),
+                    ),
+                  ],
+                ),
+              ),
+            )).toList(),
+          ),
+        );
+      },
+    );
+  }
+}

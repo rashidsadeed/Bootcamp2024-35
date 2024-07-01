@@ -9,6 +9,7 @@ class BookProvider with ChangeNotifier {
   List<Book> _wishlistBooks = [];
   List<Book> _listedBooks = [];
 
+
   List<Book> get suggestedBooks => _suggestedBooks;
   List<Book> get wishlistBooks => _wishlistBooks;
   List<Book> get listedBooks => _listedBooks;
@@ -18,9 +19,19 @@ class BookProvider with ChangeNotifier {
   }
 
   Future<void> _loadBooks() async {
-    final snapshot = await _firestore.collection('books').get();
-    _listedBooks = snapshot.docs.map((doc) => Book.fromMap(doc.data(), doc.id)).toList();
-    notifyListeners();
+    try {
+      final snapshot = await _firestore.collection('books').get();
+      _listedBooks =
+          snapshot.docs.map((doc) => Book.fromMap(doc.data(), doc.id)).toList();
+      notifyListeners();
+    } catch (e){
+      print("Error loading books: $e");
+    }
+  }
+
+  //to refresh the listedbooks list and get the book in the database
+  Future<void> refreshBooks() async {
+    await _loadBooks();
   }
 
   Future<void> addBook(String title, String author, int year, double price, String genre, String description, String image_url, int yearsUsed, String location) async {

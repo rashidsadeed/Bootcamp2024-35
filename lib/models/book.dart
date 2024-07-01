@@ -28,16 +28,16 @@ class Book {
   factory Book.fromMap(Map<String, dynamic> data, String id) {
    return Book(
      id: id,
-     title: data['title'],
-     author: data['author'],
-     year: data['year'],
-     price: data['price'],
-     genre: data['genre'],
-     description: data['description'],
-     imageUrl: data['imageUrl'],
-     listedBy: data['listedBy'],
-     yearsUsed: data['yearsUsed'],
-     location: data['location'],
+     title: data['title'] ?? "",
+     author: data['author'] ?? "",
+     year: data['year'] ?? 0,
+     price: data['price'] ?? 0,
+     genre: data['genre'] ?? "",
+     description: data['description'] ?? "",
+     imageUrl: data['imageUrl'] ?? "",
+     listedBy: data['listedBy'] ?? "",
+     yearsUsed: data['yearsUsed'] ?? 0,
+     location: data['location'] ?? "",
       );
    }
 
