@@ -28,10 +28,10 @@ okudukları kitapları satış/bağış ilanına koyabilir. aynı zamanda almak 
 
 
 - **Ürün Durumu**: Ekran Görüntüleri:
-<img alt="login-page"  width="600" src="ss/login.jpg">
-<img alt="homepage" src="https://github.com/rashidsadeed/Bootcamp2024-35/ss/home.jpg">
-<img alt="wishlist" src="https://github.com/rashidsadeed/Bootcamp2024-35/ss/list_book.jpg">
-<img alt="home-page" src="https://github.com/rashidsadeed/Bootcamp2024-35/ss/profile.jpg">
+<img alt="login-page"  width="500" src="ss/login.jpg">
+<img alt="homepage" width="500" src="ss/home.jpg">
+<img alt="wishlist" width="500" src="ss/list_book.jpg">
+<img alt="home-page" width="500" src="ss/profile.jpg">
 
 
 
