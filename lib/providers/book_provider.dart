@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../models/book.dart';
 
 class BookProvider with ChangeNotifier {
+
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   List<Book> _suggestedBooks = [];
   List<Book> _wishlistBooks = [];
@@ -18,6 +19,23 @@ class BookProvider with ChangeNotifier {
     _loadBooks();
   }
 
+  Future<void> fetchAndSetWishlistBooks() async {
+    final userId = FirebaseAuth.instance.currentUser!.uid;
+    final userDoc = await _firestore.collection("users").doc(userId).get();
+    final wishlistBookIds = List<String>.from(userDoc.get("wishlistedBooks") as List<dynamic>);
+
+    List<Book> fetchedBooks = [];
+    for (String bookId in wishlistBookIds) {
+      final bookDoc = await _firestore.collection('books').doc(bookId).get();
+      fetchedBooks.add(Book.fromMap(bookDoc.data() as Map<String, dynamic>, bookDoc.id));
+    }
+
+    _wishlistBooks = fetchedBooks;
+    notifyListeners();
+  }
+
+
+
   Future<void> _loadBooks() async {
     try {
       final snapshot = await _firestore.collection('books').get();
@@ -29,10 +47,6 @@ class BookProvider with ChangeNotifier {
     }
   }
 
-  //to refresh the listedbooks list and get the book in the database
-  Future<void> refreshBooks() async {
-    await _loadBooks();
-  }
 
   Future<void> addBook(String title, String author, int year, double price, String genre, String description, String image_url, int yearsUsed, String location) async {
     //gets the users UID to list the book under their name
