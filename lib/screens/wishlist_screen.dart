@@ -16,11 +16,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
   @override
   Widget build(BuildContext context) {
     // Your existing build method code
-    return Scaffold(
-      appBar: AppBar(
-          title: Text("Kitap Dostu")
-      ),
-      body: Consumer<BookProvider>(
+    return Consumer<BookProvider>(
         builder: (context, bookProvider, child) {
           return ListView(
             children: [
@@ -33,32 +29,6 @@ class _WishlistScreenState extends State<WishlistScreen> {
             ],
           );
         },
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Wishlist',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        onTap: (index) {
-          // Your existing navigation logic
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Your existing FAB logic
-        },
-        child: Icon(Icons.add),
-      ),
-    );
+      );
   }
 }

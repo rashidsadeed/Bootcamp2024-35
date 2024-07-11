@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
               bool success = await Provider.of<AuthProvider>(context, listen: false).signIn(emailController.text, passwordController.text); // THE AUTOFILL SUGGESTED USING login INSTEAD OF signIn
               if (success) {
                 //login bilgileri dogruysa home ekranina git
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login failed")));
               }

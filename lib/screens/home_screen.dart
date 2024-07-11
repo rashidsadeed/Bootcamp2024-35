@@ -8,99 +8,161 @@ import "../widgets/book_card.dart";
 
 List<String> genres = ['Fiction', 'Non-fiction', 'Sci-Fi', 'Fantasy', 'Biography', 'History', 'Mystery', 'Romance', 'Horror', 'Thriller'];
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  static final List<Widget> _widgetOptions = <Widget>[
+    const HomeScreenContent(),
+    const WishlistScreen(),
+    const ProfileScreen(),
+  ];
+
+  static final List<String> _titles = <String>[
+    'Home',
+    'Wishlist',
+    'Profile',
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Kitap Dostu")
-      ),
-      body: Consumer<BookProvider>(
-        builder: (context, bookProvider, child) {
-          return ListView(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search for a book",
-                      prefixIcon: Icon(Icons.search),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                ),
-                ),
-              ),
-              //to create a slide show of different genres
-              GenresCards(),
-              SizedBox(height: 10,),
-
-              //this part was used to check the refresh function of the bookprovider
-              // Container(
-              //   padding: EdgeInsets.all(8),
-              //   child: ElevatedButton(
-              //     onPressed: () {
-              //       bookProvider.refreshBooks();
-              //       print("number of books: ${bookProvider.listedBooks.length}");
-              //     },
-              //     child: Text("List a book"),
-              // ),
-              // ),
-              //to create a slide show of different books
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("Recent Books", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-              ),
-              BooksSlider(),
-
-              
-              
-
-              
-            ],
-          );
-        },
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Wishlist',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        onTap: (index) {
-          if (index == 1) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => WishlistScreen()));
-          } else if (index == 2) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ProfileScreen()));
-          }
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => BookListingsScreen()));
-        },
-        child: Icon(Icons.add),
-      ),
+        appBar: AppBar(
+          title: Text(_titles[_selectedIndex]),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.notifications),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        body: _widgetOptions[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          type:BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.book),
+              label: 'Wishlist',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
     );
   }
 }
+
+class HomeScreenContent extends StatelessWidget {
+  const HomeScreenContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: "Search for a book",
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+          ),
+        ),
+        Expanded( // Wrap ListView in Expanded
+          child: Consumer<BookProvider>(
+            builder: (context, bookProvider, child) {
+              return ListView(
+                children: [
+                  GenresCards(),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Recent Books", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  ),
+                  BooksSlider(),
+                ],
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+// class HomeScreenContent extends StatelessWidget {
+//   const HomeScreenContent({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//
+//     return Column(
+//         children: [
+//           Consumer<BookProvider>(
+//               builder: (context, bookProvider, child) {
+//                 return ListView(
+//                   children: [
+//                     Padding(
+//                       padding: const EdgeInsets.all(8.0),
+//                       child: Container(
+//                         child: TextField(
+//                           decoration: InputDecoration(
+//                             hintText: "Search for a book",
+//                             prefixIcon: Icon(Icons.search),
+//                             border: OutlineInputBorder(
+//                               borderRadius: BorderRadius.circular(10),
+//                             ),
+//                           ),
+//                       ),
+//                       ),
+//                     ),
+//                     //to create a slide show of different genres
+//                     GenresCards(),
+//                     SizedBox(height: 10,),
+//
+//                     Padding(
+//                       padding: const EdgeInsets.all(8.0),
+//                       child: Text("Recent Books", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+//                     ),
+//                     BooksSlider(),
+//                   ],
+//                 );
+//               }
+//           ),
+//         ],
+//     );
+//   }
+// }
+
 
 class GenresCards extends StatelessWidget {
   const GenresCards({
