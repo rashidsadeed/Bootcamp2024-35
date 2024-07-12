@@ -40,19 +40,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(_titles[_selectedIndex]),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.notifications),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {},
-            ),
-          ],
-        ),
+        appBar: _selectAppBar(_selectedIndex),
         body: _widgetOptions[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           type:BottomNavigationBarType.fixed,
@@ -75,7 +63,57 @@ class _HomePageState extends State<HomePage> {
         ),
     );
   }
+
+  AppBar _selectAppBar(int index) {
+  switch (index) {
+    case 0: // Home
+      return AppBar(
+        title: Text(_titles[index]),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {},
+          ),
+        ],
+      );
+    case 1: // Wishlist
+      return AppBar(
+        title: Text(_titles[index]),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.share),
+            onPressed: () {},
+          ),
+        ],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {},
+        )
+      );
+    case 2: // Profile
+      return AppBar(
+        title: Text(_titles[index]),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {},
+          ),
+        ],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {},
+        )
+      );
+    default:
+      return AppBar(
+        title: Text('Page'),
+      );
+  }
 }
+}
+
+
+
 
 class HomeScreenContent extends StatelessWidget {
   const HomeScreenContent({super.key});
@@ -119,49 +157,9 @@ class HomeScreenContent extends StatelessWidget {
     );
   }
 }
-// class HomeScreenContent extends StatelessWidget {
-//   const HomeScreenContent({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//
-//     return Column(
-//         children: [
-//           Consumer<BookProvider>(
-//               builder: (context, bookProvider, child) {
-//                 return ListView(
-//                   children: [
-//                     Padding(
-//                       padding: const EdgeInsets.all(8.0),
-//                       child: Container(
-//                         child: TextField(
-//                           decoration: InputDecoration(
-//                             hintText: "Search for a book",
-//                             prefixIcon: Icon(Icons.search),
-//                             border: OutlineInputBorder(
-//                               borderRadius: BorderRadius.circular(10),
-//                             ),
-//                           ),
-//                       ),
-//                       ),
-//                     ),
-//                     //to create a slide show of different genres
-//                     GenresCards(),
-//                     SizedBox(height: 10,),
-//
-//                     Padding(
-//                       padding: const EdgeInsets.all(8.0),
-//                       child: Text("Recent Books", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-//                     ),
-//                     BooksSlider(),
-//                   ],
-//                 );
-//               }
-//           ),
-//         ],
-//     );
-//   }
-// }
+
+
+
 
 
 class GenresCards extends StatelessWidget {
