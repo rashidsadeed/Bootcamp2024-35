@@ -48,7 +48,7 @@ okudukları kitapları satış/bağış ilanına koyabilir. aynı zamanda almak 
 
 
 - **Ürün Durumu**: Ekran Görüntüleri:
-<img alt="db"  width="500" src="ss/db.png">
+<img alt="db"  width="650" src="ss/db.png">
 
 
 
