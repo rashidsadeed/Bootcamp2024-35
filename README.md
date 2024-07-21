@@ -39,8 +39,25 @@ okudukları kitapları satış/bağış ilanına koyabilir. aynı zamanda almak 
 - Genel uygulama mantığı oluşturulmuştur
 - Uygulamanın genel UI iskeleti oluşturulmuş.
 
+---
+# **SPRINT 2**
+- **Daily Scrum**: veri erişimi konusu üzerinde tartışıldı.
+
+- **Tasarım ve Developing Mantığı**: veritabanı, users ve books olmak üzere, iki farklı kolleksyon barındırıyor. book kolleksiyonunda her kitabın detayları
+ bulunmakta ve bu kitaplara kullanıcılar tarafından  her kitabın UIDsini kullanarak erişilebiliniyor.
+
+
+- **Ürün Durumu**: Ekran Görüntüleri:
+<img alt="db"  width="500" src="ss/db.jpg">
+
+
+
+  **Sprint Review**:
+- veri tabanı ve veri erişim mantığı geliştirilmiştir.
+
+
 
 
   **Sprint Retrospective:**
-- Sorumluluklar tekrar gözden geçirilmiş.
+- daha dinamik ve professyonel bir çalışma etiği geliştirme gereği duyuluyor.
 
