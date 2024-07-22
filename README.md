@@ -41,20 +41,28 @@ okudukları kitapları satış/bağış ilanına koyabilir. aynı zamanda almak 
 
 ---
 # **SPRINT 2**
-- **Daily Scrum**: veri erişimi konusu üzerinde tartışıldı.
+- **Sprint Notlari**: veri erişimi konusu üzerinde tartışıldı. veri tabanının tasarımı ve verilere erişim mantığı üzerine calışma yapıldı
+
+Scrun metodları kullanılarak iş bölümü ve teslim tarihine göre zamanlama yapıldı
+
+- **Daily scrum**
+  Zamansal sorunlarından dolayı whatsapp üzerinden yapılmıştır
 
 - **Tasarım ve Developing Mantığı**: veritabanı, users ve books olmak üzere, iki farklı kolleksyon barındırıyor. book kolleksiyonunda her kitabın detayları
  bulunmakta ve bu kitaplara kullanıcılar tarafından  her kitabın UIDsini kullanarak erişilebiliniyor.
 
 
-- **Ürün Durumu**: Ekran Görüntüleri:
-<img alt="db"  width="650" src="ss/db.png">
+##  **Ürün Durumu**: Ekran Görüntüleri:
+<img alt="database tasarımı"  width="650" src="ss/db.png">
 
 
 
-  **Sprint Review**:
-- veri tabanı ve veri erişim mantığı geliştirilmiştir.
+  ## **Sprint Review**:
 
+  **Kararlar**
+- veri tabanı ve veri erişim mantığı geliştirilmiştir. ürünlerin ve kullanıcıların bilgilerini barındıracak iki farklı
+  kolleksiyon oluşturulmasına karar verildi.
+- kolleksiyonlar arasındaki iletişim için her "document"in özel UID'sinin kullanılmasına karalaşılmıştır.
 
 
 
