@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kitapdostu/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import "home_screen.dart";
@@ -42,9 +43,13 @@ class LoginScreen extends StatelessWidget {
                 child: Text("Login"),
             ),
             TextButton(onPressed: () {
-              //kayit ekranina git
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpScreen())
+              );
             },
-                child: Text("Don't have an account? Sign up"))
+                child: Text("Don't have an account? Sign up")
+            )
           ]
 
         ),
