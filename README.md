@@ -24,10 +24,10 @@ okudukları kitapları satış/bağış ilanına koyabilir. aynı zamanda almak 
 # **SPRINT 1**
 - **Daily Scrum**: Whatsapp üzerinden görüşmeler sağlanmıştır.
   
-- **Tasarım ve Developing Mantığı**: Tasarım tarafı aynı zamanda developing kısmında da çalışacaktır. Tasarım yapılırken aynı zamanda yazılıma uygulanmıştır.
+## - **Tasarım ve Developing Mantığı**: Tasarım tarafı aynı zamanda developing kısmında da çalışacaktır. Tasarım yapılırken aynı zamanda yazılıma uygulanmıştır.
+ 
 
-
-- **Ürün Durumu**: Ekran Görüntüleri:
+## - **Ürün Durumu**: Ekran Görüntüleri:
 <img alt="login-page"  width="500" src="ss/login.jpg">
 <img alt="homepage" width="500" src="ss/home.jpg">
 <img alt="wishlist" width="500" src="ss/list_book.jpg">
@@ -35,20 +35,20 @@ okudukları kitapları satış/bağış ilanına koyabilir. aynı zamanda almak 
 
 
 
-  **Sprint Review**:
+ ## **Sprint Review**:
 - Genel uygulama mantığı oluşturulmuştur
 - Uygulamanın genel UI iskeleti oluşturulmuş.
 
 ---
 # **SPRINT 2**
-- **Sprint Notlari**: veri erişimi konusu üzerinde tartışıldı. veri tabanının tasarımı ve verilere erişim mantığı üzerine calışma yapıldı
+## - **Sprint Notlari**: veri erişimi konusu üzerinde tartışıldı. veri tabanının tasarımı ve verilere erişim mantığı üzerine calışma yapıldı
 
 Scrun metodları kullanılarak iş bölümü ve teslim tarihine göre zamanlama yapıldı
 
 - **Daily scrum**
   Zamansal sorunlarından dolayı whatsapp üzerinden yapılmıştır
 
-- **Tasarım ve Developing Mantığı**: veritabanı, users ve books olmak üzere, iki farklı kolleksyon barındırıyor. book kolleksiyonunda her kitabın detayları
+## - **Tasarım ve Developing Mantığı**: veritabanı, users ve books olmak üzere, iki farklı kolleksyon barındırıyor. book kolleksiyonunda her kitabın detayları
  bulunmakta ve bu kitaplara kullanıcılar tarafından  her kitabın UIDsini kullanarak erişilebiliniyor.
 
 
@@ -66,6 +66,6 @@ Scrun metodları kullanılarak iş bölümü ve teslim tarihine göre zamanlama 
 
 
 
-  **Sprint Retrospective:**
+  ## **Sprint Retrospective:**
 - daha dinamik ve professyonel bir çalışma etiği geliştirme gereği duyuluyor.
 
