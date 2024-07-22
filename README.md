@@ -24,7 +24,8 @@ okudukları kitapları satış/bağış ilanına koyabilir. aynı zamanda almak 
 # **SPRINT 1**
 - **Daily Scrum**: Whatsapp üzerinden görüşmeler sağlanmıştır.
   
-## - **Tasarım ve Developing Mantığı**: Tasarım tarafı aynı zamanda developing kısmında da çalışacaktır. Tasarım yapılırken aynı zamanda yazılıma uygulanmıştır.
+## - **Tasarım ve Developing Mantığı**:
+Tasarım tarafı aynı zamanda developing kısmında da çalışacaktır. Tasarım yapılırken aynı zamanda yazılıma uygulanmıştır.
  
 
 ## - **Ürün Durumu**: Ekran Görüntüleri:
@@ -41,14 +42,16 @@ okudukları kitapları satış/bağış ilanına koyabilir. aynı zamanda almak 
 
 ---
 # **SPRINT 2**
-## - **Sprint Notlari**: veri erişimi konusu üzerinde tartışıldı. veri tabanının tasarımı ve verilere erişim mantığı üzerine calışma yapıldı
+## - **Sprint Notlari**:
+veri erişimi konusu üzerinde tartışıldı. veri tabanının tasarımı ve verilere erişim mantığı üzerine calışma yapıldı
 
 Scrun metodları kullanılarak iş bölümü ve teslim tarihine göre zamanlama yapıldı
 
 - **Daily scrum**
   Zamansal sorunlarından dolayı whatsapp üzerinden yapılmıştır
 
-## - **Tasarım ve Developing Mantığı**: veritabanı, users ve books olmak üzere, iki farklı kolleksyon barındırıyor. book kolleksiyonunda her kitabın detayları
+## - **Tasarım ve Developing Mantığı**:
+veritabanı, users ve books olmak üzere, iki farklı kolleksyon barındırıyor. book kolleksiyonunda her kitabın detayları
  bulunmakta ve bu kitaplara kullanıcılar tarafından  her kitabın UIDsini kullanarak erişilebiliniyor.
 
 
