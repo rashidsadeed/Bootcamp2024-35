@@ -1,10 +1,14 @@
+//import "package:firebase_auth/firebase_auth.dart";
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import "../providers/book_provider.dart";
 import "book_listing_screen.dart";
+import "login_screen.dart";
 import "wishlist_screen.dart";
 import "profile_screen.dart";
 import "../widgets/book_card.dart";
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 
 List<String> genres = ['Fiction', 'Non-fiction', 'Sci-Fi', 'Fantasy', 'Biography', 'History', 'Mystery', 'Romance', 'Horror', 'Thriller'];
 
@@ -39,9 +43,72 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
         appBar: _selectAppBar(_selectedIndex),
         body: _widgetOptions[_selectedIndex],
+
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                'Menu',
+                style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+                setState(() {
+                  _selectedIndex = 0;
+                });
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.book),
+              title: Text('Wishlist'),
+              onTap: () {
+                Navigator.pop(context);
+                setState(() {
+                  _selectedIndex = 1;
+                });
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Profile'),
+              onTap: () {
+                Navigator.pop(context);
+                setState(() {
+                  _selectedIndex = 2;
+                });
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Logout'),
+              onTap: () async {
+                await authProvider.signOut();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()), // Giriş ekranına yönlendirme
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+
+
+
+
         bottomNavigationBar: BottomNavigationBar(
           type:BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
@@ -72,7 +139,12 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BookListingsScreen()),
+              );
+                },
           ),
         ],
       );
@@ -96,7 +168,12 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
-            onPressed: () {},
+            onPressed: () {
+              Provider.of<AuthProvider>(context, listen: false).signOut().then((_){
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              });
+            },
           ),
         ],
         leading: IconButton(
