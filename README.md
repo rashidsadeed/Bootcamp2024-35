@@ -30,9 +30,8 @@ Tasarım tarafı aynı zamanda developing kısmında da çalışacaktır. Tasar�
 
 ## - **Ürün Durumu**: Ekran Görüntüleri:
 <img alt="login-page"  width="500" src="ss/login.jpg">
-<img alt="homepage" width="500" src="ss/home.jpg">
-<img alt="wishlist" width="500" src="ss/list_book.jpg">
-<img alt="home-page" width="500" src="ss/profile.jpg">
+<img alt="homepage" width="500" src="ss/home_screen.jpg">
+<img alt="home-page" width="500" src="ss/profile_screen.jpg">
 
 
 
@@ -71,4 +70,44 @@ veritabanı, users ve books olmak üzere, iki farklı kolleksyon barındırıyor
 
   ## **Sprint Retrospective:**
 - daha dinamik ve professyonel bir çalışma etiği geliştirme gereği duyuluyor.
+
+
+---
+# **SPRINT 3**
+## - **Sprint Notlari**:
+Yeni kullanicilarin hesap kurmalari icin sign-up ekrani ve uygulama icindeki fonksyonlar tartışıldı
+
+- **Daily scrum**
+  Zamansal sorunlarından dolayı whatsapp üzerinden yapılmıştır
+
+## - **Tasarım ve Developing Mantığı**:
+sign-up ekranı ayrı bir screen olarak yapılandırldı ve sign-in ekranına bağlandı. 
+uygulama içerisinda, kitap ekleme, logout, vb., veritabanıyal iletişim kurmayı gerektiren fonksyonlar ve butonlar
+geliştirildi ve uygulandı. kitap eklenmesi içinde ayrı bir ekran tasarlandı. 
+
+
+##  **Ürün Durumu**: Ekran Görüntüleri:
+<img alt="wishlist" width="500" src="ss/list_book.jpg">
+<img alt="wishlist" width="500" src="ss/menu.jpg">
+<img alt="wishlist" width="500" src="ss/sign_up.jpg">
+
+
+
+
+
+
+  ## **Sprint Review**:
+
+  **Sonuçlar**
+- yeni üye girişi için sign-up ekranı yapıldı.
+- kitap eklemek için buton ve ekran tasarlandı.
+- çıkış yapmak için sign up ekranı yapıldı.
+- yukarıdakilerin hepsi için gerekli veritabanı iletişimleri de sağlandı.
+- uygulama çalışır hale getirilmiş. imzalanıp apk'sı üretilmiştir
+
+
+
+  ## **Sprint Retrospective:**
+- bootkamp süreci hakkında konuşuldu ve ilerdeki projelerde izlenmesi gereken
+profesyonel yol tartışıldı.
 
