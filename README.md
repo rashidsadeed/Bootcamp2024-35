@@ -83,13 +83,13 @@ Yeni kullanicilarin hesap kurmalari icin sign-up ekrani ve uygulama icindeki fon
 ## - **Tasarım ve Developing Mantığı**:
 sign-up ekranı ayrı bir screen olarak yapılandırldı ve sign-in ekranına bağlandı. 
 uygulama içerisinda, kitap ekleme, logout, vb., veritabanıyal iletişim kurmayı gerektiren fonksyonlar ve butonlar
-geliştirildi ve uygulandı. kitap eklenmesi içinde ayrı bir ekran tasarlandı. 
+geliştirildi ve uygulandı. kitap eklenmesi içinde ayrı bir ekran tasarlandı. aynı zamanda, splash screen tasarlandı
 
 
 ##  **Ürün Durumu**: Ekran Görüntüleri:
 <img alt="wishlist" width="500" src="ss/list_book.jpg">
 <img alt="wishlist" width="500" src="ss/menu.jpg">
-<img alt="wishlist" width="500" src="ss/sign_up.jpg">
+<img alt="wishlist" width="500" src="ss/sign_up_screen.jpg">
 
 
 
@@ -103,6 +103,7 @@ geliştirildi ve uygulandı. kitap eklenmesi içinde ayrı bir ekran tasarlandı
 - kitap eklemek için buton ve ekran tasarlandı.
 - çıkış yapmak için sign up ekranı yapıldı.
 - yukarıdakilerin hepsi için gerekli veritabanı iletişimleri de sağlandı.
+- logo yapıldı ve splash screen içerisinde kullanıldı.
 - uygulama çalışır hale getirilmiş. imzalanıp apk'sı üretilmiştir
 
 
